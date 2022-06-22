@@ -142,3 +142,4 @@ https://www.redhat.com/sysadmin/container-namespaces-nsenter
 ·runc, nsenter, lsns, buildah
 
 ![alt text](https://github.com/aGus41/podman-demo/blob/main/containers.png?raw=true)
+- oom: Out of Memory
