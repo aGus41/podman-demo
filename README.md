@@ -134,3 +134,5 @@ CMD ["httpd", "-D", "FOREGROUND"]
 `$ curl 127.0.0.1:10080`
 
 `$ podman push quay.io/aalgorta/httpd-test`
+
+![alt text](https://github.com/aGus41/podman-demo/blob/main/containers.png?raw=true)
