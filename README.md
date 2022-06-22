@@ -135,4 +135,10 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 `$ podman push quay.io/aalgorta/httpd-test`
 
+## Tools to troubleshoot containers
+
+https://www.redhat.com/sysadmin/container-namespaces-nsenter
+
+·runc, nsenter, lsns, buildah
+
 ![alt text](https://github.com/aGus41/podman-demo/blob/main/containers.png?raw=true)
