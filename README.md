@@ -123,7 +123,13 @@ EXPOSE 80
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-`$ podman build -t httpd/apache .`
+`$ podman build -t httpd/apache:2.3 -f <containerfile>`
+
+- `-t: tagged name to apply to the built image`
+
+- Alternatively, you can tag the image later with: 
+
+`$ podman tag <containerID> httpd/apache:2.3`
 
 `$ podman images`
 
@@ -133,7 +139,12 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 `$ curl 127.0.0.1:10080`
 
+We can push the image to a specified destination
+
 `$ podman push quay.io/aalgorta/httpd-test`
+
+
+
 
 ## Tools to troubleshoot containers
 
