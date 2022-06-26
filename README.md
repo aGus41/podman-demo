@@ -125,7 +125,7 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 `$ podman build -t httpd/apache:2.3 -f <containerfile>`
 
-- `-t: tagged name to apply to the built image`
+- `-t:` tagged name to apply to the built image
 
 - Alternatively, you can tag the image later with: 
 
@@ -152,5 +152,6 @@ https://www.redhat.com/sysadmin/container-namespaces-nsenter
 
 ·runc, nsenter, lsns, buildah
 
+## Container Lifecycle
 ![alt text](https://github.com/aGus41/podman-demo/blob/main/containers.png?raw=true)
 - oom: Out of Memory
