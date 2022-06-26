@@ -25,32 +25,32 @@ Base Image. It sets the entry point for this container to the echo "Hello world"
 `$ podman run ubi8/ubi:8.3 echo 'Hello world!'`
         https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image-
 
-To start a container image as a background process, pass the -d option to the podman run
+To start a container image as a background process, pass the `-d` option to the podman run
 command:
 
 `$ podman run -d -p 44389:8080 registry.redhat.io/rhel8/httpd-24`
 
 `$ podman port -l`
 
-It uses the -p 44389:8080 option to bind HTTP server's port to a local port. Then, it uses the podman port command to
+It uses the `-p 44389:8080` option to bind HTTP server's port to a local port. Then, it uses the podman port command to
 retrieve the local port on which the container listens
 
 `$ curl http://0.0.0.0:44389` 
 
-Most Podman subcommands accept the -l flag (l for latest) as a replacement for
+Most Podman subcommands accept the `-l` flag (l for latest) as a replacement for
 the container id. This flag applies the command to the latest used container in any
 Podman command
 
 If the images require that the user interact with the console, then Podman can redirect container
-input and output streams to the console. The run subcommand requires the -t and -i flags to enable interactivity.
+input and output streams to the console. The run subcommand requires the `-t` and `-i` flags to enable interactivity.
 
 `$ podman run -it ubi8/ubi:8.3 /bin/bash`
 
 Some containers need or can use external parameters provided at startup. The most common
 approach for providing and consuming those parameters is through environment variables.
-	
-Podman can inject environment variables into containers at startup by adding the -e flag to the
-	run subcommand.
+
+
+Podman can inject environment variables into containers at startup by adding the `-e` flag to the run subcommand.
 
 `$ podman run -e GREET=Hello -e NAME=RedHat  ubi8/ubi:8.3 printenv GREET NAME`
 
@@ -150,8 +150,31 @@ We can push the image to a specified destination
 
 https://www.redhat.com/sysadmin/container-namespaces-nsenter
 
-·runc, nsenter, lsns, buildah
+https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users#
+
+·runc, nsenter, lsns, buildah, skopeo
+
+
+## Podman helps users move to Kubernetes
+
+Podman provides some extra features that help developers and operators in Kubernetes environments. There are extra commands provided by Podman that are not available in Docker. If you are familiar with Docker and are considering using Kubernetes/OpenShift as your container platform, then Podman can help you.
+
+Podman can generate a Kubernetes YAML file based on a running container using `podman generate kube`. The command `podman pod` can be used to help debug running Kubernetes pods along with the standard container commands.
+
+`$ podman generate kube lab-apache2`
+
+
+`$ podman run -dt --pod podtest alpine` 
+- add container to a pod
+
+`$ podman run -dt --pod podtest mysql-80:latest`
+
+`$ podman pod podtest start`
+
+`$ podman generate kube podtest`
 
 ## Container Lifecycle
 ![alt text](https://github.com/aGus41/podman-demo/blob/main/containers.png?raw=true)
 - oom: Out of Memory
+
+
